@@ -6,7 +6,7 @@ import pandas as pd
 
 class notReport(Student.Student):
     
-    def __init__(self,ID = '0000000'):
+    def __init__(self,ID = '0000000000'):
         self.ID = ID
         self.filename = 'studentInfo.csv'
         self.student_list = []
@@ -19,7 +19,7 @@ class notReport(Student.Student):
 	    with open(self.filename, newline='') as csvfile:
                  rowreader = csv.reader(csvfile)
                  for row in rowreader:
-                      if row[0] == str(id):
+                      if row[0] == '00'+str(id):
                            self.currentRow = rowreader.line_num
                            # print(self.currentRow)
                            for element in row:
