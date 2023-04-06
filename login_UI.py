@@ -16,15 +16,13 @@ class login_UI:
             print('added')
             
     def checkExist(self,id):
-        id = '00'+str(id)
-        print(id)
         with open(self.filename, 'r') as file:
             isExist = False
             csvreader = csv.reader(file)
             for row in csvreader:
                 # print(row[0])
                 # print(str(id))
-                if id == row[0]:   
+                if '00'+str(id) == row[0]:   
                     isExist = True
             if isExist == False:
                 self.addStaff(id)
