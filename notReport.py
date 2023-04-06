@@ -21,10 +21,10 @@ class notReport(Student.Student):
                  for row in rowreader:
                       if row[0] == '00'+str(id):
                            self.currentRow = rowreader.line_num
-                           # print(self.currentRow)
+                           print(self.currentRow)
                            for element in row:
                                  self.student_list.append(element)
-                                 # print(self.student_list)
+                                 print(self.student_list)
                            if self.student_list[1] == '':
                               self.taskNum = 0
                            else: 
@@ -32,7 +32,8 @@ class notReport(Student.Student):
                            return self.currentRow
 
     def task_time(self, start, end):  
-         self.tempTimePosition = self.taskNum + 2    
+         self.tempTimePosition = self.taskNum + 2  
+         print(self.tempTimePosition,len(self.student_list))  
          if self.student_list[self.tempTimePosition] != '':
               self.tempTimePosition = self.taskNum + 3
          self.student_list[self.tempTimePosition] = start
@@ -51,7 +52,7 @@ class notReport(Student.Student):
                 
     def renewCSV(self):
         studentinfo = pd.read_csv(self.filename, encoding = 'utf-8')
-        # print(self.currentRow-2, self.taskNum+2)
+        print(self.currentRow-2, self.taskNum+2)
         print(self.student_list)
         x,y = self.currentRow-2, self.tempTimePosition
         studentinfo.iloc[x,1] = self.student_list[1]
@@ -61,8 +62,8 @@ class notReport(Student.Student):
         studentinfo.to_csv(self.filename,index=False)
         print(studentinfo)
 
-# report = notReport()
-# report.getPosition('123456789')
-# report.task_time(10, 100)
-# report.updateTaskDoneNum(1)
-# report.renewCSV()
+report = notReport()
+report.getPosition('123456789')
+report.task_time(10, 100)
+report.updateTaskDoneNum(10)
+report.renewCSV()
