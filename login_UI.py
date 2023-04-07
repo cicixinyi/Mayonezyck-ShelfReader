@@ -2,6 +2,7 @@
 
 from guizero import *
 import csv
+import pandas as pd
 import Student
 
 class login_UI:
@@ -11,9 +12,14 @@ class login_UI:
         self.currentStudent = None
 
     def addStaff(self,id):
-        with open(self.filename, 'a+') as file:
-            file.write("\n00" + str(id))
-            print('added')
+        student_table = pd.read_csv(self.filename, sep = ',')
+        new_studnet = [id]
+        col_num = len(student_table.columns) - 1
+        for i in range(col_num):
+            new_studnet.append('')
+        student_table.loc[len(student_table)] = new_studnet
+        student_table.to_csv(self.filename,index=False)
+        print('added')
             
     def checkExist(self,id):
         with open(self.filename, 'r') as file:
@@ -22,7 +28,7 @@ class login_UI:
             for row in csvreader:
                 # print(row[0])
                 # print(str(id))
-                if '00'+str(id) == row[0]:   
+                if str(id) == row[0]:   
                     isExist = True
             if isExist == False:
                 self.addStaff(id)
