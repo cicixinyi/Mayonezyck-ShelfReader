@@ -6,7 +6,7 @@ import matrixgenerate, instruction
 class checking_UI:
     def __init__(self):
         self.filename = 'shelflist.xlsx'
-        self.shelfCheckWindow = App(title = "Shelf Checking is in Progress", width = 1000)
+        self.shelfCheckWindow = App(title = "Shelf Checking is in Progress", width = 480, height = 320)
         self.bookList, self.bookDic = readfile.readfile(self.filename)
         self.currentBook = None
         self.BookTitle = None
