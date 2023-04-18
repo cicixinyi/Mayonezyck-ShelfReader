@@ -26,9 +26,9 @@ class task_UI:
         confirm_firstBook = TitleBox(self.taskWindow, "The first book in this list is", height=90, width=460)
         Text(confirm_firstBook, text=self.book.call_number, size=14)
         Text(confirm_firstBook, text=self.book.title, size=14)
-        #TODO:button for confirm
+        #button for confirm
         PushButton(self.taskWindow, text='Yes', command=self.killWindow, align='left', height="fill", width="fill")
-        #TODO:button for abort
+        #button for abort
         PushButton(self.taskWindow, text='No', command=self.findHelp, align="right", height="fill", width="fill")
         self.taskWindow.set_full_screen()
         self.taskWindow.display()
