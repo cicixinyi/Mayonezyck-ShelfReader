@@ -40,17 +40,14 @@ class login_UI:
             UserIdBox.value = ''
             UserIdBox.text_color='black'
 
-        Text(self.loginWindow, text="\nWelcome!\n", size=40)
-        Text(self.loginWindow, text="ID number: ",align="left")
+        Text(self.loginWindow, text="\nWelcome!", size=30)
+        Text(self.loginWindow, text="   ID number: ", align="left", size=18)
         UserIdBox = TextBox(self.loginWindow, text="Please enter your ID number", width=25, align="left")
         UserIdBox.text_color = 'grey'
         UserIdBox.when_clicked = toEnter   # clear text in textbox when click on it
-        arrange_box=Box(self.loginWindow, height="fill")
-        #PushButton(arrange_box, text = 'OK', command = self.check, args = [UserIdBox], align = "right")  
+        arrange_box=Box(self.loginWindow, height="fill") 
         PushButton(arrange_box, text = 'OK', command = self.check, args = [UserIdBox], align = "right")  
-        #nextPage = PushButton(self.loginWindow, text = 'Next', align = "bottom")
-        # nextPage.when_clicked = nextWindow
-        # loginWindow.set_full_screen()
+        self.loginWindow.set_full_screen()
         self.loginWindow.display()  
              
     def getStudent(self):
